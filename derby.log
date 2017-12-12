@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Nov 22 15:40:14 CET 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-015f-e42c-13eb-0000065c2450 
+on database directory /home/lblanc01/NetBeansProjects/mavenProjetAAB/embedded_sample with class loader sun.misc.Launcher$AppClassLoader@5f0a94c5 
+Loaded from file:/home/lblanc01/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_131-b00
+user.dir=/home/lblanc01/NetBeansProjects/mavenProjetAAB
+os.name=Linux
+os.arch=amd64
+os.version=3.16.0-4-amd64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

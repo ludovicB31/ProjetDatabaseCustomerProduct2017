@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 déc. 2017, 13:44:28
+    Author     : lblanc01
+*/
+#page {
+	
+	text-align: left;
+        background: rgb(183,222,237); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(183,222,237,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 51%,rgba(183,222,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(183,222,237,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 51%,rgba(183,222,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=0 ); /* IE6-9 */
+margin-top: 0;
+height: 100px;
+ -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal normal bold 40px/normal "Atomic Age", Helvetica, sans-serif;
+  color: rgba(55,55,56,1);
+  text-align: left;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgb(77,162,252) , -1px -1px 0 rgb(77,162,252) , 1px -1px 0 rgb(77,162,252) , -1px 1px 0 rgb(77,162,252) , 4px 4px 8px rgb(44,88,137) , -4px 4px 8px rgb(44,88,137) , 4px -4px 8px rgb(44,88,137) , -4px -4px 8px rgb(44,88,137) ;
+  -webkit-transition: all 500ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 500ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 500ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 500ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+#welcome {
+	
+	text-align: center;
+         -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 auto;
+  border: none;
+  font: normal 50px/normal "Anton", Helvetica, sans-serif;
+  color: rgba(219,219,219,1);
+  text-align: center;
+  text-transform: uppercase;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 10px;
+  text-shadow: 4px 4px 0 rgb(238,238,238) , 6px 6px 0 rgb(112,112,112) ;
+  margin-bottom: 100px;
+}
+#connectFORM {
+	
+	text-align: center;
+}
+#GO{
+    margin-top: 60px;
+    width: 250px;
+}
+#notification{color: red;
+text-align: center;}
+
+label
+
+{
+    text-align: center;
+         -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 auto;
+  border: none;
+  font: normal 20px/normal "Anton", Helvetica, sans-serif;
+  color: rgba(219,219,219,1);
+  text-align: center;
+  text-transform: uppercase;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 10px;
+  text-shadow: 2px 2px 0 rgb(238,238,238) , 2px 2px 0 rgb(112,112,112) ;
+    
+    width: 150px;
+    display: inline-block;
+    text-align:left;
+}
+head{
+margin: 0;
+padding: 0;
+height: opx;
+}
+body{
+background-image: url('http://st.gde-fon.com/wallpapers_original/348073_tekstura_fon_sinij_oboi_poloski_chyornyj_1920x1080_www.Gde-Fon.com.jpg');
+margin: 0;
+padding: 0;
+height: opx;
+}
+.input{
+    width: 500px;
+    height: 30px;
+}
+

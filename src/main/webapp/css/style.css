@@ -1,0 +1,265 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+   background-image: url('http://st.gde-fon.com/wallpapers_original/348073_tekstura_fon_sinij_oboi_poloski_chyornyj_1920x1080_www.Gde-Fon.com.jpg');
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:hover, a:active, a:focus, a:visited {
+	border: 0;
+	text-decoration: none;
+	color: red;
+        
+}
+.bg-white {
+	background-color: rgba(255, 255, 255, 0.5);
+	margin: 10px 0;
+	padding: 5px;
+}
+.rubrique{
+    color:  #07b9d2;
+}
+.logo {
+	
+	
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 auto;
+  border: none;
+  font: normal 25px/normal "Anton", Helvetica, sans-serif;
+  color: rgb(80, 80, 160);
+  text-align: center;
+  text-transform: uppercase;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 10px;
+  text-shadow: 4px 4px 0 rgb(238,238,238) , 6px 6px 0 rgb(112,112,112) ;
+  margin-top: 0;
+}
+
+
+#page{
+    margin-top:10px;
+}
+#tableCommand{
+    background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: auto;
+  margin: 0;
+  width: 100%;
+
+ 
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:23px;
+  font-weight: 100;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+  height: 50px;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+ 
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+  
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+ 
+tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+}
+ 
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+ 
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+td {
+  background:#FFFFFF;
+  text-align: center;
+  
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}
+select{ -webkit-appearance: menulist-button;
+   height: 40px;
+   width: auto;
+   padding-right:  15px;
+   padding-left:  15px;
+    display: inline-blockblock;
+   }
+
+.header .ad-block {
+	width: 60%;
+	height: 50px;
+	margin: 10px;
+}
+.left-sidebar .ad-block {
+	height: 80px;
+	margin: 10px 10px 15px 10px;
+}
+.main-content .ad-block {
+	height: 80px;
+	width: 30%;
+	margin: 10px;
+}
+.right-sidebar .ad-block {
+	height: 80px;
+	margin: 10px 10px 15px 10px;
+}
+.header {
+	height: 80px;
+}
+.footer, .middle-left, .middle-right, .bottom-left-block, .bottom-middle-block, .bottom-right-block, .bottom-content {
+	height: 60px;
+
+}
+.left-sidebar, .right-sidebar {
+	height: 360px;
+
+}
+.main-content  {
+	height: auto;
+}
+.main-content bg-white {
+	height: 100px;
+}
+.footer .copyright {
+	color: #A5A5A5;
+	text-align: center;
+	margin: 16px;
+}
+
+.Command{
+        padding:0px ;
+    display:  inline-block;
+    margin-top: 0;
+     -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100px;
+  height: 27px;
+  cursor: pointer;
+  border: 1px solid rgba(0,7,211,1);
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  font: normal 14px/27px "Advent Pro", Helvetica, sans-serif;
+  color: rgba(14,89,160,1);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0);
+  -webkit-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+  -moz-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+  -o-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+  transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+}
+.Command:hover{ border: 1px solid rgb(30,205,151);
+  color: rgba(255,255,255,1);
+  background: rgb(30, 205, 151);}
+.Command.quit{
+    width: 140px;
+    color: crimson;
+    border: 1px solid crimson;
+    
+}
+#deco{
+     margin: 0 auto;
+     width: 100px; 
+     padding-top: 15px;
+}
+
+@media (max-width:767px) {
+.header {
+	height: auto;
+}
+
+.header .ad-block {
+	height: 50px;
+	width: auto;
+	margin: 10px;
+	float: none;
+}
+.footer {
+		height: auto;
+}
+.rubrique{
+    color:  #07b9d2;
+}
+}
+

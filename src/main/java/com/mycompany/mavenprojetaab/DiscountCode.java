@@ -1,0 +1,29 @@
+package com.mycompany.mavenprojetaab;
+
+
+
+/**
+ * Un enregistrement de la table DISCOUNT_CODE
+ * @author rbastide
+ */
+public class DiscountCode {
+
+	private String discountCode;
+
+	private float rate;
+
+	public DiscountCode(String code, float rate) {
+		this.discountCode = code;
+		this.rate = rate;
+	}
+
+
+	public String getDiscountCode() {
+		return discountCode;
+	}
+
+	public float getRate() {
+		return rate;
+	}
+
+}

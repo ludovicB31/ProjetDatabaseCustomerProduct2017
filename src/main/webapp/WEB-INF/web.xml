@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	 version="3.1">
+    <servlet>
+        <servlet-name>Connexion</servlet-name>
+        <servlet-class>servlet.Connexion</servlet-class>
+        <!-- Les identifiants pour se connecter -->
+        <init-param>
+            <param-name>loginADM</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>passwordADM</param-name>
+            <param-value>12345</param-value>
+        </init-param>
+        <init-param>
+            <param-name>userName</param-name>
+            <param-value>Compte administrateur</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Connexion</servlet-name>
+        <url-pattern>/Connexion</url-pattern>
+    </servlet-mapping>
+    <!-- Un filtre qui vérifie que l'utilisateur est connecté -->
+   
+    <!-- Un listener qui compte le nombre d'utilisateurs connectés à l'application -->
+   
+    
+    <!-- Contrôle le temps au bout duquel une session inactive est détruite automatiquement -->
+    <session-config>
+        <!-- Un temps volontairement court : 1 minute -->
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+  
+</web-app>
