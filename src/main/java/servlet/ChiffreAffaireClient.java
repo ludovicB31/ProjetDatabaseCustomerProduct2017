@@ -12,6 +12,7 @@ import com.mycompany.mavenprojetaab.DataSourceFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,10 +70,21 @@ public class ChiffreAffaireClient extends HttpServlet {
             throws ServletException, IOException {
         DAOprojet mydao=new DAOprojet(DataSourceFactory.getDataSource());
         ArrayList<ChiffreAffaireClientObj> cac=null;
+        String dd=null;
+        String df=null;
+        try{dd=request.getAttribute("jsonDataStr").toString();
+        df=request.getAttribute("DateFin").toString();}
+        catch(Exception e){e.printStackTrace();
+        System.out.println("dd="+request.getAttribute("DateDeb"));}
+       dd="2000-01-01";
+      df="2050-01-01";
         try {
-             cac =mydao.ClientChiffre();
+          
+             cac =mydao.ClientChiffre(dd,df);
             
         } catch (SQLException ex) {
+            Logger.getLogger(ChiffreAffaireClient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
             Logger.getLogger(ChiffreAffaireClient.class.getName()).log(Level.SEVERE, null, ex);
         }
         String jsonClient = new Gson().toJson(cac);
@@ -80,7 +92,7 @@ public class ChiffreAffaireClient extends HttpServlet {
        response.setContentType("application/json");
 
        response.getWriter().write(jsonClient);
-
+ //request.getRequestDispatcher("AdminVue.jsp").forward(request, response);
     }
 
     /**
@@ -94,7 +106,30 @@ public class ChiffreAffaireClient extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         DAOprojet mydao=new DAOprojet(DataSourceFactory.getDataSource());
+        ArrayList<ChiffreAffaireClientObj> cac=null;
+        String dd=null;
+        String df=null;
+        try{dd=request.getParameter("DateDeb").toString();
+        df=request.getParameter("DateFin").toString();}
+        catch(Exception e){e.printStackTrace();
+        System.out.println("dd="+request.getParameter("DateDeb"));}
+      
+        try {
+              System.out.println("DateDeb="+dd+"<---->DateFin="+df);
+             cac =mydao.ClientChiffre(dd,df);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ChiffreAffaireClient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(ChiffreAffaireClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String jsonClient = new Gson().toJson(cac);
+        request.setAttribute("Msg", "sa va");
+       response.setContentType("application/json");
+
+       response.getWriter().write(jsonClient);
+
     }
 
     /**

@@ -23,7 +23,7 @@ public class tester {
         ArrayList cacTO =new ArrayList();
         ArrayList cols =new ArrayList();
         ArrayList rows=new ArrayList();
-             cac =mydao.ClientChiffre();
+        
              
             
             

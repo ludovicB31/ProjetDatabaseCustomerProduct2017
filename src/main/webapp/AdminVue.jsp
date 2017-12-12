@@ -21,12 +21,17 @@
       
     // Set a callback to run when the Google Visualization API is loaded.
     google.charts.setOnLoadCallback(drawChart);
-      
+      var dataRequestObject= {}; 
+                dataRequestObject= {DateDeb:'2010-01-01',DateFin:'2018-01-01'};
     function drawChart() {
+        
       var jsonData = $.ajax({
           url: "ChiffreAffaireClient",
-          type:'GET',
+          type:'POST',
+          cache:false,
+           contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
           dataType: "json",
+          data: dataRequestObject,
           async: false
           }).responseText;
         cac=JSON.parse(jsonData);
@@ -48,17 +53,20 @@
       var chart = new google.visualization.PieChart(document.getElementById('Client'));
       chart.draw(dataClient, {width: 1200, height: 600, title:'Chiffre daffaire par client'});
     }
+    function ChangeDateClient() {
+      dataRequestObject= {DateDeb:document.getElementById('ByClientDateDeb').value,DateFin:document.getElementById('ByClientDateFin').value};
+         window.alert("Modification des dates prises en comptes");
+         drawChart();
+    }
 
     </script>
 
   </head>
   <body>
       <h1>Seletionez une periode pour l'affichage du chiffre d'affaire par client</h1>
-      <form id='Clientdate' onsubmit="event.preventDefault();drawChart;">
-          Date de départ:<input placeholder="2016-12-23" type="date" max="2050-06-25" min="2011-08-13" name="the_date">
-          Date de fin:<input placeholder="2017-12-23" type='date' id='finclient' ></input>
-          <button type='submit'>Afficher</button>
-      </form>
+          Date de départ:<input id="ByClientDateDeb" placeholder="2016-12-23" type="date" >
+          Date de fin:<input id="ByClientDateFin" placeholder="2017-12-23" type='text'  ></input>
+          <button onClick="JavaScript:ChangeDateClient()">Afficher</button>
     <div id="Client" ></div>
     <div id="chart_div"></div>
         <div id="demo"></div>

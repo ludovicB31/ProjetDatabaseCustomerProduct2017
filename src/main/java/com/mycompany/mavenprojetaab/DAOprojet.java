@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -368,13 +370,20 @@ public DAOprojet(DataSource dataSource) {
             }
             
             //liste [[nom],[Chiffre affaire ]] des chiffre d'affaires par client
-            public ArrayList ClientChiffre()throws SQLException {
+            public ArrayList ClientChiffre(String dateDeb,String dateFin)throws SQLException, ParseException {
                 ArrayList result=new ArrayList();
                     ArrayList resultNom =new ArrayList();
                     ArrayList resultCa =new ArrayList();
-                    String sql = "SELECT NAME,SUM(QUANTITY)AS TOTQUANTITY,SUM((PURCHASE_COST*QUANTITY))AS TOTAL FROM CUSTOMER INNER JOIN PURCHASE_ORDER ON CUSTOMER.CUSTOMER_ID=PURCHASE_ORDER.CUSTOMER_ID INNER JOIN PRODUCT ON PRODUCT.PRODUCT_ID=PURCHASE_ORDER.PRODUCT_ID GROUP BY NAME"; 
+                    String sql = "SELECT NAME,SUM(QUANTITY)AS TOTQUANTITY,SUM((PURCHASE_COST*QUANTITY))AS TOTAL FROM CUSTOMER INNER JOIN PURCHASE_ORDER ON CUSTOMER.CUSTOMER_ID=PURCHASE_ORDER.CUSTOMER_ID AND SALES_DATE BETWEEN ? AND ? INNER JOIN PRODUCT ON PRODUCT.PRODUCT_ID=PURCHASE_ORDER.PRODUCT_ID GROUP BY NAME"; 
 		try (Connection connection = myDataSource.getConnection(); 
 		     PreparedStatement stmt = connection.prepareStatement(sql)) {
+                        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm-dd");//il faut faire passer le format de date String en format comprehensible pat SQL
+                        java.util.Date date = sdf1.parse(dateDeb);           //on utilise donc SimpleDateFormat pour faire passer en DATE SQL
+                         java.util.Date datef = sdf1.parse(dateFin);
+                        java.sql.Date sqldateDeb = new java.sql.Date(date.getTime()); 
+                        java.sql.Date sqldateFin = new java.sql.Date(datef.getTime()); 
+                        stmt.setDate(1, sqldateDeb);
+                        stmt.setDate(2, sqldateFin);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				String nom = rs.getString("NAME");
