@@ -401,6 +401,68 @@ public DAOprojet(DataSource dataSource) {
 
 		return result;
                 }
+            public ArrayList ProduitChiffre(String dateDeb,String dateFin)throws SQLException, ParseException {
+                ArrayList result=new ArrayList();
+                    ArrayList resultProduit =new ArrayList();
+                    ArrayList resultCa =new ArrayList();
+                    String sql ="SELECT PRODUCT.DESCRIPTION,SUM(PURCHASE_ORDER.QUANTITY*PRODUCT.PURCHASE_COST) AS CA FROM PURCHASE_ORDER,PRODUCT WHERE PURCHASE_ORDER.PRODUCT_ID=PRODUCT.PRODUCT_ID AND PURCHASE_ORDER.SALES_DATE BETWEEN ? AND ? GROUP BY PRODUCT.DESCRIPTION";
+		try (Connection connection = myDataSource.getConnection(); 
+		     PreparedStatement stmt = connection.prepareStatement(sql)) {
+                     SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm-dd");//il faut faire passer le format de date String en format comprehensible pat SQL
+                        java.util.Date date = sdf1.parse(dateDeb);           //on utilise donc SimpleDateFormat pour faire passer en DATE SQL
+                         java.util.Date datef = sdf1.parse(dateFin);
+                        java.sql.Date sqldateDeb = new java.sql.Date(date.getTime()); 
+                        java.sql.Date sqldateFin = new java.sql.Date(datef.getTime()); 
+                        stmt.setDate(1, sqldateDeb);
+                        stmt.setDate(2, sqldateFin);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				String produit = rs.getString("DESCRIPTION");
+				Double caDouble = rs.getDouble("CA");
+                                
+                  //creation de l'objet chiffreaffaireClientObjet
+				ChiffreAffaireProduitObj cac = new ChiffreAffaireProduitObj(produit,caDouble);
+				resultProduit.add(cac.produit);
+                               	resultCa.add(cac.ca);
+
+			}
+		}
+                result.add(resultProduit);
+                result.add(resultCa);
+
+		return result;
+                }
+            public ArrayList StateChiffre(String dateDeb,String dateFin)throws SQLException, ParseException {
+                ArrayList result=new ArrayList();
+                    ArrayList resultState =new ArrayList();
+                    ArrayList resultCa =new ArrayList();
+                    String sql ="SELECT CUSTOMER.STATE,SUM(PURCHASE_ORDER.QUANTITY*PRODUCT.PURCHASE_COST) AS CA FROM APP.PURCHASE_ORDER,PRODUCT,CUSTOMER WHERE PRODUCT.PRODUCT_ID=PURCHASE_ORDER.PRODUCT_ID AND PURCHASE_ORDER.SALES_DATE BETWEEN ? AND ?  GROUP BY CUSTOMER.STATE";
+		try (Connection connection = myDataSource.getConnection(); 
+		     PreparedStatement stmt = connection.prepareStatement(sql)) {
+                     SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm-dd");//il faut faire passer le format de date String en format comprehensible pat SQL
+                        java.util.Date date = sdf1.parse(dateDeb);           //on utilise donc SimpleDateFormat pour faire passer en DATE SQL
+                         java.util.Date datef = sdf1.parse(dateFin);
+                        java.sql.Date sqldateDeb = new java.sql.Date(date.getTime()); 
+                        java.sql.Date sqldateFin = new java.sql.Date(datef.getTime()); 
+                        stmt.setDate(1, sqldateDeb);
+                        stmt.setDate(2, sqldateFin);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				String state = rs.getString("STATE");
+				Double caDouble = rs.getDouble("CA");
+                                
+                  //creation de l'objet chiffreaffaireClientObjet
+				ChiffreAffaireStateObj cac = new ChiffreAffaireStateObj(state,caDouble);
+				resultState.add(cac.state);
+                               	resultCa.add(cac.ca);
+
+			}
+		}
+                result.add(resultState);
+                result.add(resultCa);
+
+		return result;
+                }
            
            
 }
