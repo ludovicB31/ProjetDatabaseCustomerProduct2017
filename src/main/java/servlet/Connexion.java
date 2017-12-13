@@ -59,7 +59,7 @@ public class Connexion extends HttpServlet {
                                     request.setAttribute("message", "Veuillez remplir tout les champs ");
                                           }
                                     else if( mydao.ClientExist(email, Integer.parseInt(mp))){
-                                        request.setAttribute("message", "Vous etes correctement Connecter");
+                                        request.setAttribute("message", "Vous etes correctement Connecté");
                                          //on envoi la liste des catégories
                                         ArrayList<String> cats=mydao.allCats();
                                         request.setAttribute("cats", cats);
