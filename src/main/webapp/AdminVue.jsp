@@ -158,7 +158,6 @@
           date de debut:<input placeholder="2016-12-23" type='date' id='debutprod' ></input>
           date de fin:<input placeholder="2017-12-23" type='date' id='finprod' ></input>
           <button onClick="JavaScript:ChangeDateProd()">Afficher</button>  
-    <div id="Prod" style="width: 800px; height: 500px;"></div>
-    <form action="Deconnect"><button><input type="submit">Déconnexion</input></button></form>
-  </body>
+    <div id="Prod" ></div>
+ <form><button  onclick='this.form.submit()'><input type="hidden" name="action" value="Deconnect" >Déconnexion</button> </form><%//demande au controlleur de deconexion%>  </body>
 </html>
