@@ -159,5 +159,6 @@
           date de fin:<input placeholder="2017-12-23" type='date' id='finprod' ></input>
           <button onClick="JavaScript:ChangeDateProd()">Afficher</button>  
     <div id="Prod" style="width: 800px; height: 500px;"></div>
+    <form action="Deconnect"><input type="submit">Déconnexion</input></form>
   </body>
 </html>
