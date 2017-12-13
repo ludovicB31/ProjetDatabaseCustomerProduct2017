@@ -436,7 +436,7 @@ public DAOprojet(DataSource dataSource) {
                 ArrayList result=new ArrayList();
                     ArrayList resultState =new ArrayList();
                     ArrayList resultCa =new ArrayList();
-                    String sql ="SELECT CUSTOMER.STATE,SUM(PURCHASE_ORDER.QUANTITY*PRODUCT.PURCHASE_COST) AS CA FROM APP.PURCHASE_ORDER,PRODUCT,CUSTOMER WHERE PRODUCT.PRODUCT_ID=PURCHASE_ORDER.PRODUCT_ID AND PURCHASE_ORDER.SALES_DATE BETWEEN ? AND ?  GROUP BY CUSTOMER.STATE";
+                    String sql ="SELECT CUSTOMER.STATE,SUM(PURCHASE_ORDER.QUANTITY*PRODUCT.PURCHASE_COST) AS CA FROM PURCHASE_ORDER INNER JOIN PRODUCT ON PRODUCT.PRODUCT_ID=PURCHASE_ORDER.PRODUCT_ID AND PURCHASE_ORDER.SALES_DATE BETWEEN ? AND ? INNER JOIN CUSTOMER ON CUSTOMER.CUSTOMER_ID=PURCHASE_ORDER.CUSTOMER_ID GROUP BY CUSTOMER.STATE";
 		try (Connection connection = myDataSource.getConnection(); 
 		     PreparedStatement stmt = connection.prepareStatement(sql)) {
                      SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm-dd");//il faut faire passer le format de date String en format comprehensible pat SQL
